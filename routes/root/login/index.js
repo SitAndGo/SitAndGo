@@ -3,9 +3,9 @@ const router = express.Router();
 
 /* GET home page. */
 router.get("/", (req, res, next) => {
-	res.render("index", {
-		login: false,
-		title: "Sit And Go",
+	res.render("login", {
+		login: true,
+		title: "login",
 		partials: {
 			header: "header",
 			footer: "footer"
