@@ -83,5 +83,6 @@ app.use((err, req, res, next) => {
 	});
 });
 
+app.listen(config.server.port)
 
 module.exports = app;
