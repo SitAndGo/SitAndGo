@@ -1,4 +1,7 @@
 {{> header}}
 <h1>Welcome to {{ title }}</h1>
+{{# logout }}
+<p>{{ message }}</p>
+{{/ logout }}
 {{> footer}}
 

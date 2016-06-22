@@ -4,7 +4,11 @@ const favicon = require("serve-favicon");
 const logger = require("morgan");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
+const session = require("express-session");
+const passport = require("passport");
+const Strategy = require("passport-twitter").Strategy;
 
+const config = require("./config.json");
 const routes = require("./routes/routes");
 
 const app = express();
@@ -12,6 +16,31 @@ const app = express();
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hjs");
+
+// session
+app.use(session(config.session));
+
+// twitter
+passport.use(new Strategy(config.twitter, (token, tokenSecret, profile, cb) => {
+    // In this example, the user's Twitter profile is supplied as the user
+    // record.  In a production-quality application, the Twitter profile should
+    // be associated with a user record in the application's database, which
+    // allows for account linking and authentication with other identity
+    // providers.
+	console.log("login ", profile.username);
+    return cb(null, profile);
+}));
+
+passport.serializeUser((user, cb) => {
+	cb(null, user);
+});
+
+passport.deserializeUser((obj, cb) => {
+	cb(null, obj);
+});
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
@@ -34,7 +63,7 @@ app.use((req, res, next) => {
 
 // development error handler
 // will print stacktrace
-if (app.get("env") === "development") {
+if (config.env === "development") {
 	app.use((err, req, res, next) => {
 		res.status(err.status || 500);
 		res.render("error", {

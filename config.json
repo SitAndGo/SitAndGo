@@ -1,0 +1,15 @@
+{
+	"server": {
+		"port": 3000
+	},
+	"session": {
+		"secret": "",
+		"resave": true,
+		"saveUninitialized": true
+	},
+	"twitter": {
+		"consumerKey": "",
+		"consumerSecret": "",
+	},
+	"env": "development"
+}

@@ -5,6 +5,9 @@
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body>
-  {{^ login }}
-  <p><a href="/login">ログイン</a></p>
+  {{# logout }}
+  <p><a href="logout">ログアウト</a></p>
+  {{/ logout }}
+  {{# login }}
+  <p><a href="login">ログイン</a></p>
   {{/ login }}

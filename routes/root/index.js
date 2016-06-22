@@ -1,11 +1,12 @@
 const express = require("express");
 const router = express.Router();
 
-/* GET home page. */
 router.get("/", (req, res, next) => {
-	res.render("index", {
-		login: false,
+	res.render("home", {
+		login: !req.user,
+		logout: !!req.user,
 		title: "Sit And Go",
+		message: req.user ? "Hello, " + req.user.displayName  + " !" : "",
 		partials: {
 			header: "header",
 			footer: "footer"
