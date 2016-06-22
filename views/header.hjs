@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+  {{# logout }}
+  <p><a href="logout">ログアウト</a></p>
+  {{/ logout }}
+  {{# login }}
+  <p><a href="login">ログイン</a></p>
+  {{/ login }}

@@ -1,0 +1,8 @@
+{{> header}}
+<h1>Login</h1>
+<h2>ログイン方法を選ぶ</h2>
+<ul>
+  <li><a href="login/twitter">Twitter</a></li>
+</ul>
+{{> footer}}
+
