@@ -9,7 +9,7 @@
 	},
 	"twitter": {
 		"consumerKey": "",
-		"consumerSecret": "",
+		"consumerSecret": ""
 	},
 	"env": "development"
 }
